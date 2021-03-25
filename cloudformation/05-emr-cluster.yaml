@@ -12,11 +12,11 @@ Parameters:
   MasterInstanceType:
     Description: Instance type to be used for the master instance.
     Type: String
-    Default: m3.xlarge
+    Default: m5.xlarge
   CoreInstanceType:
     Description: Instance type to be used for core instances.
     Type: String
-    Default: m3.xlarge
+    Default: m5.xlarge
   NumberOfCoreInstances:
     Description: Must be a valid number
     Type: Number
@@ -35,7 +35,7 @@ Parameters:
     Type: String
   ReleaseLabel:
     Description: Must be a valid EMR release version
-    Default: emr-5.7.0
+    Default: emr-5.32.0
     Type: String
   Applications:
     Description: >-
@@ -83,12 +83,6 @@ Resources:
       Instances:
         Ec2KeyName: !Ref KeyName
         Ec2SubnetId: !Ref SubnetID
-        AdditionalMasterSecurityGroups:
-          - sg-9cb487fb
-          - sg-9cb4876b
-        AdditionalSlaveSecurityGroups:
-          - sg-9cb48144
-          - sg-9cb48788
         MasterInstanceGroup:
           InstanceCount: 1
           InstanceType: !Ref MasterInstanceType
@@ -146,5 +140,5 @@ Resources:
       Path: /
       Roles:
         - !Ref EMRClusterinstanceProfileRole
-        
+
 Outputs: {}
