@@ -12,11 +12,11 @@ Parameters:
   MasterInstanceType:
     Description: Instance type to be used for the master instance.
     Type: String
-    Default: m5.xlarge
+    Default: m6.gxlarge
   CoreInstanceType:
     Description: Instance type to be used for core instances.
     Type: String
-    Default: m5.xlarge
+    Default: m6.gxlarge
   NumberOfCoreInstances:
     Description: Must be a valid number
     Type: Number

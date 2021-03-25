@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: SageMaker Workshop - CloudFormation Template
+
+Parameters:
+  SubnetId:
+    Description: A valid public subnet ID to provision your EC2
+    Type: String
+  VpcId:
+    Description: VPC ID of the above subnet
+    Type: String
+  IpAccessJupyter:
+    Description: The IP address range that can be used to access Jupyter
+    Type: String
+    MinLength: 9
+    MaxLength: 18
+    Default: 0.0.0.0/0
+    AllowedPattern: (\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})
+    ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
+
+Resources:
+  NotebookRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "sagemaker.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: "root"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "*"
+                Resource: "*"
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !Ref 'VpcId'
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: !Ref 'IpAccessJupyter'
+
+  NotebookInstance:
+    Type: "AWS::SageMaker::NotebookInstance"
+    Properties:
+      InstanceType: "ml.m5.2xlarge"
+      RoleArn: !GetAtt NotebookRole.Arn
+      SubnetId: !Ref 'SubnetId'
+      SecurityGroupIds:
+        - !Ref 'InstanceSecurityGroup'
+      # DefaultCodeRepository: https://github.com/BRCentralSA/sagemaker-advanced-workshop
+      VolumeSizeInGB: 100
+      Tags:
+        - Key: Name
+          Value: "sagemakerworkshop"
+
+Outputs:
+  Instance:
+    Description: SageMaker Notebook Instance.
+    Value: !Ref NotebookInstance
+  Role:
+    Description: SageMaker Notebook Instance Role.
+    Value: !GetAtt NotebookRole.Arn
