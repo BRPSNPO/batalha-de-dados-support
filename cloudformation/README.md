@@ -12,7 +12,7 @@ Os recursos são disponiveis para provisionamento utilizando Cloud Formation, es
 
 - **Thanos:** Esse template provisiona uma instância EC2 com 16vPCU e 64GB de Ram
 
-- **Jupiter Notebook:** Esse template provisiona um Notebook para ser utilizado na AWS.
+- **Jupyter Notebook:** Esse template provisiona um Notebook para ser utilizado na AWS.
 
 > Jupyter Notebook é uma aplicação web que permite a você criar e compartilhar documentos que contem ao mesmo tempo código interativo e textos explicativos.
 

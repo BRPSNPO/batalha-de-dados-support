@@ -1,0 +1,22 @@
+Description: This CloudFormation Template provides the creation of a S3 bucket
+
+Parameters:
+  BucketName:
+    Description: The S3 bucket name
+    Type: String
+    Default: change-me
+
+Resources:
+
+  S3BucketData:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Ref BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Name
+          Value: !Ref BucketName
