@@ -55,3 +55,37 @@ This IDS will be used in almost all CFS: ('subnet-xxxxxxx', 'vpc-xxxxxx')
 > Você utilizará o VPC ID e o Subnet ID em quase todos os outros templates do CloudFormation que você for utilizar.
 
 # Como provisionar as stacks do CloudFormation via console
+
+- Primeiro passo faça login no cosole da AWS e busque por CloudFormation.
+
+<p align="center"> 
+<img src="images/cf-01.png">
+</p>
+
+- No canto superior direito clique em `Create Stack > With new resources`.
+
+<p align="center"> 
+<img src="images/cf-02.png">
+</p>
+
+- Selecione `Upload template file > Choose file` agora escolha o template do CloudFormation que quer realizar o deploy e clique `Next`.
+
+<p align="center"> 
+<img src="images/cf-03.png">
+</p>
+
+- De o nome para a Stack e preencha os parametros solicitados no momento da criação e clique em `Next` e depois `Next` novamente.
+
+<p align="center"> 
+<img src="images/cf-04.png">
+</p>
+
+- Selecione o botão `I acknowledge that AWS CloudFormation might create IAM resources.` e clique em `Create Stack`.
+
+<p align="center"> 
+<img src="images/cf-05.png">
+</p>
+
+- Pronto, sua stack já estará sendo provisionada, você pode acompanhar o andamento utilizando o console do CloudFormation.
+
+
