@@ -4,13 +4,8 @@
 
 # Templates Disponiveis
 
-Os recursos são disponiveis para provisionamento utilizando Cloud Formation, esses templates são previamente configurados para provisionar os recursos em sua conta AWS de forma mais simples.
-
-- **VPC:** Provisiona uma VPC seguindo as boas práticas da AWS
-
-- **Joker:** Esse template provisiona uma instância EC2 com 8vPCU e 4GB de Ram
-
-- **Thanos:** Esse template provisiona uma instância EC2 com 16vPCU e 64GB de Ram
+Os recursos são disponiveis para provisionamento utilizando CloudFormation, esses templates são previamente configurados para provisionar os recursos em sua conta AWS de forma mais simples.
+Para a Batalha de Dados, você vai poder criar uma instância de Sagemaker Notebook utilizando o CloudFormation.
 
 - **SageMaker Notebook:** Esse template provisiona um Notebook para ser utilizado na AWS.
 
