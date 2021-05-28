@@ -5,7 +5,8 @@
 # Templates Disponiveis
 
 Os recursos são disponiveis para provisionamento utilizando CloudFormation, esses templates são previamente configurados para provisionar os recursos em sua conta AWS de forma mais simples.
-Para a Batalha de Dados, você vai poder criar uma instância de Sagemaker Notebook utilizando o CloudFormation.
+
+Templates disponíveis para a batalha de dados: 
 
 - **SageMaker Notebook:** Esse template provisiona um Notebook para ser utilizado na AWS.
 
